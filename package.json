@@ -16,6 +16,13 @@
     "rsuite": "3.8.5"
   },
   "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "lint-staged": "^8.1.7",
+    "pre-commit": "^1.2.2",
     "source-map-explorer": "^1.8.0",
     "typescript": "3.3.3"
   },
@@ -24,12 +31,28 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-app-rewired eject"
+    "eject": "react-app-rewired eject",
+    "lint:js": "eslint ./src",
+    "lint-staged": "lint-staged"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "pre-commit": "lint-staged",
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "airbnb"
+    ],
+    "env": {
+      "node": true,
+      "browser": true
+    }
+  }
 }
